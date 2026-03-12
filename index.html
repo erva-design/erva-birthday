@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>İyi ki Doğdun Erva 🎉</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+text-align:center;
+background:linear-gradient(180deg,#0f0c29,#302b63,#24243e);
+color:white;
+overflow-x:hidden;
+}
+
+h1{
+margin-top:40px;
+letter-spacing:3px;
+}
+
+.name{
+font-size:60px;
+font-weight:bold;
+background:linear-gradient(90deg,#ff7b7b,#ffd86b,#6be5ff,#ff7bd5);
+-webkit-background-clip:text;
+color:transparent;
+margin-bottom:20px;
+}
+
+img{
+width:250px;
+border-radius:20px;
+margin-top:20px;
+}
+
+button{
+width:80%;
+max-width:320px;
+padding:18px;
+margin:12px;
+border:none;
+border-radius:30px;
+font-size:18px;
+color:white;
+background:linear-gradient(45deg,#667eea,#764ba2);
+}
+
+.messages{
+display:none;
+background:white;
+color:black;
+margin:20px;
+padding:20px;
+border-radius:20px;
+text-align:left;
+}
+
+.message{
+background:#f1f1f1;
+padding:10px;
+border-radius:10px;
+margin-bottom:10px;
+}
+
+.balloon{
+position:fixed;
+bottom:-100px;
+font-size:30px;
+animation:float 8s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+100%{transform:translateY(-120vh)}
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>İYİ Kİ DOĞDUN</h1>
+
+<div class="name">ERVA</div>
+  
+
+<br>
+
+<button onclick="showMessages()">
+🎉 Tebrik mesajlarını gör
+</button>
+
+<button onclick="playSong()">
+🎵 Kutlama seslerini dinle
+</button>
+
+<button onclick="addMessage()">
+💌 Anı defteri
+</button>
+
+<div class="messages" id="messages">
+
+<h3>Tebrik Mesajları</h3>
+
+<div class="message">
+🎂 Doğum günün kutlu olsun Erva!
+</div>
+
+<div class="message">
+🎉 Yeni yaşın sana mutluluk getirsin.
+</div>
+
+<div class="message">
+💖 Nice güzel yıllara!
+</div>
+
+</div>
+
+<audio id="song">
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3">
+</audio>
+
+<script>
+
+function showMessages(){
+document.getElementById("messages").style.display="block"
+}
+
+function playSong(){
+document.getElementById("song").play()
+}
+
+function addMessage(){
+
+let text=prompt("Erva için mesaj yaz")
+
+if(text){
+
+let div=document.createElement("div")
+div.className="message"
+div.innerText=text
+
+document.getElementById("messages").appendChild(div)
+
+}
+
+}
+
+for(let i=0;i<15;i++){
+
+let b=document.createElement("div")
+b.className="balloon"
+b.innerText="🎈"
+
+b.style.left=Math.random()*100+"%"
+b.style.animationDuration=(5+Math.random()*5)+"s"
+
+document.body.appendChild(b)
+
+}
+
+</script>
+
+</body>
+</html>
